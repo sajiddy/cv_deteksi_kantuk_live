@@ -1,4 +1,6 @@
--- run this code first to install dependencies --
-pip install opencv-python dlib numpy scipy jupyterlab ipywidgets pillow
+Make sure python and cmake is installed correctly including in PATH
 
-also make sure python and cmake is installed
+-- run this code first to install dependencies --
+
+pip install dlib numpy scipy jupyterlab ipywidgets pillow flask opencv-python 
+
