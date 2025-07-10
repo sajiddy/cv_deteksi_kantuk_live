@@ -29,12 +29,11 @@
     </div>
 
     <script>
-        // --- VARIABEL UNTUK MENGINGAT STATE DI JAVASCRIPT ---
         let earFrameCounter = 0;
         let yawnFrameCounter = 0;
         let totalYawns = 0;
         const EAR_CONSECUTIVE_FRAMES = 15;
-        const YAWN_CONSECUTIVE_FRAMES = 5; // <-- UBAH NILAI INI DARI 10 MENJADI 5
+        const YAWN_CONSECUTIVE_FRAMES = 5; 
 
         const video = document.getElementById('video');
         const statusText = document.getElementById('status-text');
@@ -42,7 +41,6 @@
         const restMessage = document.getElementById('rest-message');
 
         async function startCamera() {
-            // ... (Fungsi ini tidak berubah)
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ video: true });
                 video.srcObject = stream;
@@ -53,7 +51,6 @@
         }
 
         async function analyzeFrame() {
-            // ... (Fungsi ini tidak berubah)
             const canvas = document.createElement('canvas');
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
@@ -70,7 +67,6 @@
 
                 const data = await response.json();
 
-                // ... (Logika di dalam sini tidak berubah)
                 if (data.is_eye_closed) {
                     earFrameCounter++;
                     if (earFrameCounter >= EAR_CONSECUTIVE_FRAMES) {
@@ -107,8 +103,7 @@
 
         startCamera();
         video.onloadeddata = () => {
-            // Jalankan analisis setiap 200ms (5 frame per detik)
-            setInterval(analyzeFrame, 350); // <-- UBAH NILAI INI DARI 500 MENJADI 200
+            setInterval(analyzeFrame, 350); 
         };
     </script>
 </body>
